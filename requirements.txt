@@ -1,10 +1,7 @@
 streamlit
-matplotlib
 plotly
 pandas
 numpy
-seaborn
-pydeck
 psycopg2
 SQLAlchemy
 streamlit-option-menu
