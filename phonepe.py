@@ -40,15 +40,12 @@ elif select == "Top Charts":
     case_study = st.selectbox(
                 "Choose a Business Case Study",
                 [
-                    "1. Transaction Dynamics",
-                    "2. Device Engagement",
-                    "3. Insurance Growth",
-                    "4. Market Expansion",
-                    "5. User Growth",
-                    "6. Insurance Engagement",
-                    "7. State/District Performance",
-                    "8. User Registration",
-                    "9. Insurance Transactions"
+                    "Transaction Dynamics",
+                    "Device Engagement",
+                    "Insurance Growth",
+                    "User Growth",
+                    "Insurance Engagement",
+                    "Insurance Transactions"
                 ]
             )
         
@@ -58,7 +55,7 @@ elif select == "Top Charts":
     quarter = st.selectbox("Select Quarter", [1, 2, 3, 4])
 
         # --- Case Logic ---
-    if case_study == "1. Transaction Dynamics":
+    if case_study == "Transaction Dynamics":
         st.header("📊 Transaction Dynamics Across States and Quarters")
         query = f'''
                 SELECT states, years, quarter,
@@ -74,7 +71,7 @@ elif select == "Top Charts":
         fig.update_layout(bargap=0.1)
         st.plotly_chart(fig, use_container_width=True)
 
-    elif case_study == "2. Device Engagement":
+    elif case_study == "Device Engagement":
         st.header("📱 Device Brand vs App Engagement")
         query = f'''
                 SELECT Brands AS device_brand,
@@ -92,7 +89,7 @@ elif select == "Top Charts":
             fig = px.bar(df, x="device_brand", y=["total_users", "total_opens"], barmode="group")
             st.plotly_chart(fig, use_container_width=True)
 
-    elif case_study == "3. Insurance Growth":
+    elif case_study == "Insurance Growth":
         st.warning("Note: This chart ignores the selected Quarter and shows all quarters for selected year.")
 
         st.header("📈 Insurance Transactions by State")
@@ -110,22 +107,7 @@ elif select == "Top Charts":
         st.plotly_chart(fig, use_container_width=True)
 
 
-    elif case_study == "4. Market Expansion":
-        st.header("🌍 Regional Market Performance")
-        query = f'''
-                SELECT states, years,
-                    SUM(transaction_amount) AS total_amount,
-                    SUM(transaction_count) AS total_count
-                FROM aggregated_transaction
-                WHERE years = {year} AND quarter = {quarter}
-                GROUP BY states, years
-                ORDER BY total_amount DESC;
-            '''
-        df = run_query(query)
-        fig = px.bar(df, x="states", y="total_amount", color="states")
-        st.plotly_chart(fig, use_container_width=True)
-
-    elif case_study == "5. User Growth":
+    elif case_study == "User Growth":
         st.header("👥 User Engagement by State")
         query = f'''
                 SELECT States,
@@ -141,7 +123,7 @@ elif select == "Top Charts":
         fig = px.bar(df, x="states", y="engagement_ratio", color="states")
         st.plotly_chart(fig, use_container_width=True)
 
-    elif case_study == "6. Insurance Engagement":
+    elif case_study == "Insurance Engagement":
         st.header("🛡️ District-wise Insurance Performance")
         query = f'''
                 SELECT States, Pincodes,
@@ -156,38 +138,8 @@ elif select == "Top Charts":
         fig = px.treemap(df, path=["states", "pincodes"], values="total_count")
         st.plotly_chart(fig, use_container_width=True)
 
-    elif case_study == "7. State/District Performance":
-        st.header("📌 Top Transaction Locations")
-        query = f'''
-                SELECT States, Pincodes,
-                    SUM(Transaction_amount) AS total_amount,
-                    SUM(Transaction_count) AS total_count
-                FROM top_transaction
-                WHERE Years = {year} AND Quarter = {quarter}
-                GROUP BY States, Pincodes
-                ORDER BY total_amount DESC;
-            '''
-        df = run_query(query)
-        df["pincodes"] = df["pincodes"].astype(str)
-        fig = px.bar(df, x="states", y="total_amount", color="pincodes")
-        st.plotly_chart(fig, use_container_width=True)
 
-    elif case_study == "8. User Registration":
-        st.header("📝 User Registration Trends")
-        query = f'''
-                SELECT States, Pincodes,
-                    SUM(registered_users) AS total_users
-                FROM top_user
-                WHERE Years = {year} AND Quarter = {quarter}
-                GROUP BY States, Pincodes
-                ORDER BY total_users DESC;
-            '''
-        df = run_query(query)
-        fig = px.bar(df.head(20), x="pincodes", y="total_users", color="states")
-        fig.update_layout(bargap=0.1)
-        st.plotly_chart(fig, use_container_width=True)
-
-    elif case_study == "9. Insurance Transactions":
+    elif case_study == "Insurance Transactions":
         st.header("💼 Insurance Transaction Trends")
         query = f'''
                 SELECT States, Pincodes,
