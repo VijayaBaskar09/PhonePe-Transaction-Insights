@@ -39,9 +39,7 @@ if select == "Home":
 
 elif select == "Top Charts":
     st.header("📊 Top Charts")
-
-    
-        
+  
     def run_query(query):
         conn = get_connection()
         df = pd.read_sql(query, conn)
