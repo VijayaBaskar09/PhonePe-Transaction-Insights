@@ -43,7 +43,7 @@ elif select == "Top Charts":
                     "Transaction Dynamics",
                     "Device Engagement",
                     "Insurance Growth",
-                    "User Growth",
+                    "State/District Performance",
                     "Insurance Engagement",
                     "Insurance Transactions"
                 ]
@@ -106,21 +106,21 @@ elif select == "Top Charts":
         fig = px.line(df, x="quarter", y="count", color="states", title=f"Insurance Count Across Quarters in {year}")
         st.plotly_chart(fig, use_container_width=True)
 
-
-    elif case_study == "User Growth":
-        st.header("👥 User Engagement by State")
+    elif case_study == "State/District Performance":
+        st.header("📌 Top Transaction Locations")
         query = f'''
-                SELECT States,
-                    SUM(Transaction_count) AS total_users,
-                    SUM(Percentage) AS total_opens
-                FROM aggregated_user
+                SELECT States, Pincodes,
+                    SUM(Transaction_amount) AS total_amount,
+                    SUM(Transaction_count) AS total_count
+                FROM top_transaction
                 WHERE Years = {year} AND Quarter = {quarter}
-                GROUP BY States
-                ORDER BY total_opens DESC;
+                GROUP BY States, Pincodes
+                ORDER BY total_amount DESC;
             '''
         df = run_query(query)
-        df["engagement_ratio"] = (df["total_opens"] / df["total_users"]).round(2)
-        fig = px.bar(df, x="states", y="engagement_ratio", color="states")
+        df["pincodes"] = df["pincodes"].astype(str)
+        fig = px.sunburst(df, path=["states", "pincodes"], values="total_amount",
+        color="total_amount", color_continuous_scale="RdYlGn")
         st.plotly_chart(fig, use_container_width=True)
 
     elif case_study == "Insurance Engagement":
