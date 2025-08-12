@@ -55,12 +55,14 @@ This project extracts, processes, and visualizes data from the **PhonePe Pulse G
 
 ### 1️⃣ Clone the repository
     ```bash
-git clone https://github.com/VijayaBaskar09/PhonePe-Transaction-Insights.git
-cd PhonePe-Transaction-Insights
+    git clone https://github.com/VijayaBaskar09/PhonePe-Transaction-Insights.git
+    cd PhonePe-Transaction-Insights
 
 ### 2️⃣ Install dependencies
-pip install -r requirements.txt
+    ```bash
+    pip install -r requirements.txt
 
 ### 4️⃣ Run the dashboard
-streamlit run dashboard/app.py
+    ```bash
+    streamlit run dashboard/app.py
 
