@@ -48,9 +48,9 @@ This project extracts, processes, and visualizes data from the **PhonePe Pulse G
 - GeoJSON data for administrative boundaries (states/districts/pincodes)
 ---
 ## Usage
-Navigate through the interactive visualizations on the Streamlit app
-Use filters to explore metrics by timeframe and geography
-
+- Navigate through the interactive visualizations on the Streamlit app
+- Use filters to explore metrics by timeframe and geography
+---
 ## 📥 Installation & Setup
 
 ### 1️⃣ Clone the repository
