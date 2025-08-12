@@ -44,9 +44,9 @@ This project extracts, processes, and visualizes data from the **PhonePe Pulse G
 ---
 
 ## Data Sources
-PhonePe Pulse dataset (link or reference where to obtain it)
-GeoJSON data for administrative boundaries (states/districts/pincodes)
-
+- PhonePe Pulse dataset (link or reference where to obtain it)
+- GeoJSON data for administrative boundaries (states/districts/pincodes)
+---
 ## Usage
 Navigate through the interactive visualizations on the Streamlit app
 Use filters to explore metrics by timeframe and geography
