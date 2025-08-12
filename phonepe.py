@@ -119,8 +119,8 @@ elif select == "Top Charts":
             '''
         df = run_query(query)
         df["pincodes"] = df["pincodes"].astype(str)
-        fig = px.sunburst(df, path=["states", "pincodes"], values="total_amount",
-        color="total_amount", color_continuous_scale="RdYlGn")
+        fig = px.scatter(df, x="states", y="total_amount", size="total_amount",
+        color="pincodes", hover_name="pincodes", size_max=40)
         st.plotly_chart(fig, use_container_width=True)
 
     elif case_study == "Insurance Engagement":
