@@ -1,28 +1,25 @@
-# 📊 PhonePe Transaction Insights
+# PhonePe Transaction Insights
 
-A Streamlit dashboard to visualize and analyze transaction trends in India using the PhonePe Pulse dataset.
+A dynamic **Streamlit dashboard** that visualizes and analyzes transaction trends across India using the **PhonePe Pulse dataset**.
 
-## 📂 Features
+##  Features
 
-- India map-based visualizations
-- Quarter & year-wise transaction insights
-- Top states, districts, and pincodes
-- Interactive filters for deep dives
+-  Interactive map-based visualizations (India state/district/pincode levels)  
+-  Insights segmented by quarter and year  
+-  Identify top-performing states, districts, and pincodes  
+-  Interactive filters for in-depth exploration
 
-## ⚙️ Tech Stack
+##  Tech Stack
 
-- Python
-- Streamlit
-- Plotly
-- PostgreSQL
-- GeoJSON
+- **Python** • **Streamlit** • **Plotly** • **PostgreSQL** • **GeoJSON**
 
-## ▶️ To Run the App
+##  Demo
+
+![Dashboard Preview](phonepe.png)
+
+##  Installation & Setup
 
 1. **Clone the repository**  
-```bash
-pip install -r requirements.txt
-2. **To run the dashboard**  
-streamlit run phonepe.py
-
-
+   ```bash
+   git clone https://github.com/VijayaBaskar09/PhonePe-Transaction-Insights.git
+   cd PhonePe-Transaction-Insights
