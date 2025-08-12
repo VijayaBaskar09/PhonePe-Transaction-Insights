@@ -23,8 +23,19 @@ with st.sidebar:
     select= option_menu("Main Menu",["Home", "Data Exploration", "Top Charts"])
 
 if select == "Home":
-    logo = Image.open("phonepe.png")
-    st.image(logo, use_container_width=True, width=50) 
+    
+    col1,col2= st.columns(2)
+    with col1:
+        st.header("PHONEPE")
+        st.subheader("INDIA'S BEST TRANSACTION APP")
+        st.markdown("PhonePe  is an Indian digital payments and financial technology company")
+        st.write("****FEATURES****")
+        st.write("****Credit & Debit card linking****")
+        st.write("****Bank Balance check****")
+        st.write("****Money Storage****")
+        st.write("****PIN Authorization****")
+    with col2:
+        st.video("C:\Users\user\OneDrive\Desktop\Capstone_Project\Phonepe Ad.mp4")
 
 elif select == "Top Charts":
     st.header("📊 Top Charts")
