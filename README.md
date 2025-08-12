@@ -25,6 +25,7 @@ A dynamic **Streamlit dashboard** that visualizes and analyzes transaction trend
    cd PhonePe-Transaction-Insights
 
 ## Install dependencies
+```bash
 pip install -r requirements.txt
 
 ## Set up the database
@@ -36,6 +37,7 @@ Import the PhonePe Pulse dataset (add instructions or link the source)
 Place GeoJSON files in the designated folder (if required)
 
 ## Run the dashboard
+ ```bash
 streamlit run phonepe.py
 
 
