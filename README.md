@@ -19,13 +19,10 @@ A Streamlit dashboard to visualize and analyze transaction trends in India using
 
 ## ▶️ To Run the App
 
+1. **Clone the repository**  
 ```bash
 pip install -r requirements.txt
+2. **To run the dashboard**  
 streamlit run phonepe.py
 
-##  Installation & Setup
 
-1. **Clone the repository**  
-   ```bash
-   git clone https://github.com/VijayaBaskar09/PhonePe-Transaction-Insights.git
-   cd PhonePe-Transaction-Insights
